@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #searchInput{
+    width: 600px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 5px 20px;
+    font-size: 20px;
+    }
+    #searchInput:focus{
+      border: 3px solid rgb(0, 68, 147);
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5)
+        }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <input id="searchInput" placeholder="Nhập vào đây ..." type="text">
+  </div>
+
+  <script type="module">
+    import {debounce,throttle} from'./func.js'
+
+    function handleInput(value){
+        console.log(value)
+    }
+
+    const search = debounce(handleInput,2000)
+
+    const searchInput = document.getElementById("searchInput")
+
+    searchInput.addEventListener("input",(e)=>{
+        search(e.target.value)
+    })
+  </script>
+</body>
+</html>
