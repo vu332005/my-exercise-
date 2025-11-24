@@ -37,12 +37,15 @@
         console.log(value)
     }
 
-    const search = debounce(handleInput,2000)
+    const search = debounce(handleInput,1000)
 
     const searchInput = document.getElementById("searchInput")
 
     searchInput.addEventListener("input",(e)=>{
-        search(e.target.value)
+      search(e.target.value)
+      if(e.target.value === "xxx"){
+        search.clear()
+      }
     })
   </script>
 </body>
